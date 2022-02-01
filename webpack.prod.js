@@ -5,12 +5,12 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = merge.merge(common, {
     mode: "production",
     output: {
-        filename: "[name].[contentHash].bundle.js",
+        filename: "[name].[contenthash].bundle.js",
         path: path.resolve(__dirname, "dist")
     },
     optimization: {
@@ -28,7 +28,7 @@ module.exports = merge.merge(common, {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
+        new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
         new CleanWebpackPlugin.CleanWebpackPlugin()
     ],
     module: {
@@ -40,7 +40,12 @@ module.exports = merge.merge(common, {
                     "css-loader", //2. Turns css into commonjs
                     "sass-loader" //1. Turns sass into css
                 ]
-            }
+                },
+                {
+                   
+                    test: /\.css$/,
+                    use: [MiniCssExtractPlugin.loader, "css-loader"],
+                }
         ]
     }
 });
