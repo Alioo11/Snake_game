@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log("what is going on !!"),alert("this is the index js file ")})();
