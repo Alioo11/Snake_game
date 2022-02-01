@@ -1,3 +1,29 @@
 body{
+    background-color: rgb(0, 40, 6);
+}
+.board{
+    width: fit-content;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(39 , 25px);
+    border: 8px solid rgb(134, 177, 46);
+}
+.cell{
+    width: 25;
+    height: 25px;
+    background-color: yellowgreen;
+}
+
+.cell:nth-child(even){
+background-color: rgb(134, 177, 46);
+}
+
+.snake_body{
+    background-color: red;
+}
+.snake_head{
     background-color: blue;
+}
+.snake_tail{
+    background-color: yellow;
 }
