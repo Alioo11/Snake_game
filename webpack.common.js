@@ -12,15 +12,27 @@ module.exports = {
                 use: ["html-loader"]
             },
             {
-                test: /\.(svg|png|jpg|gif)$/,
-                use: {
-                    loader: "file-loader",
-                    options: {
-                        name: "[name].[hash].[ext]",
-                        outputPath: "imgs"
-                    }
+                test: /\.(jpe?g|png|gif)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'img/asset_[hash][ext]'
                 }
             }
+            // {
+            //     test: /\.(svg|png|jpg|gif)$/,
+            //     use: {
+            //         loader: "file-loader",
+            //         options: {
+            //             name: "[name]__[hash].[ext]",
+            //             // outputPath: (url , resoursePath , context)=>{
+            //             //     console.log(url)
+            //             //     console.log(resoursePath)
+            //             //     console.log(context)
+            //             //     return "imgs"
+            //             // }
+            //         }
+            //     }
+            // }
         ]
     }
 };
